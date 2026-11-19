@@ -154,3 +154,13 @@ plot_confusion_matrix(cm=cm, classes=cm_plot_labels, title='Confusion Matrix')
 
 """Save the Model"""
 
+import os.path
+if os.path.isfile('models/medical_trial_data_model.keras') is False:
+  model.save('models/medical_trial_data_model.keras')
+
+from keras.models import load_model
+new_md = load_model('models/medical_trial_data_model.keras')
+
+"""Saved model summary"""
+
+new_md.summary()
